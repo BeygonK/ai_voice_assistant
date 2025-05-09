@@ -5,7 +5,9 @@ function Dashboard({ children }) {
   return (
     <div>
       <Navbar />
-      {children}
+      <div className="p-10m mt-10 md:px-20 lg:32 xl:px-56 2xl:72">
+        {children}
+      </div>
     </div>
   );
 }
