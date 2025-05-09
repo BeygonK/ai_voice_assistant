@@ -25,16 +25,23 @@ function InputDialog({ children, itemOptions }) {
                   Enter topic to learn in {itemOptions.name}
                 </h2>
                 <Textarea placeholder="" className="mt-2" />
-                <div>
-                  {coachingExperts.map((expert) => {
+                <h2 className="text-black mt-5">Choose your tutor</h2>
+                <div className="grid grid-cols-3 md:grid-cols-5 mt-3">
+                  {coachingExperts.map((expert, index) => {
                     return (
-                      <Image
-                        src={expert.avatar}
-                        alt={expert.name}
-                        width={100}
-                        height={100}
-                        key={expert.id}
-                      />
+                      <div
+                        key={index}
+                        className="flex flex-col items-center gap-6"
+                      >
+                        <Image
+                          src={expert.avatar}
+                          alt={expert.name}
+                          width={100}
+                          height={100}
+                          className="rounded-lg object-cover w-[80px] h-[80px] cursor-pointer"
+                        />
+                        <h2 className="text-sm font-medium">{expert.name}</h2>
+                      </div>
                     );
                   })}
                 </div>
