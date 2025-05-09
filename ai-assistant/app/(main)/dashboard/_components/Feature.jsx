@@ -5,6 +5,7 @@ import { List } from "@/utils/List";
 import { useUser } from "@stackframe/stack";
 import Image from "next/image";
 import React, { use } from "react";
+import InputDialog from "./InputDialog";
 
 function Feature() {
   const user = useUser();
@@ -22,16 +23,18 @@ function Feature() {
           <BlurFade key={item.icon} delay={0.25 + index * 0.05} inView>
             <div
               key={index}
-              className="flex flex-col items-center justify-center p-3 bg-gray-100 rounded-lg hover:bg-gray-200 transition duration-300 ease-in-out"
+              className="flex flex-col justify-center items-center bg-gray-50 rounded-lg hover:shadow-lg transition duration-300 ease-in-out cursor-pointer"
             >
-              <Image
-                src={item.icon}
-                alt={item.name}
-                width={150}
-                height={150}
-                className="h-[70px] w-[70px] hover:rotate-12 transition duration-300 ease-in-out cursor-pointer"
-              />
-              <h1>{item.name}</h1>
+              <InputDialog itemOptions={item}>
+                <Image
+                  src={item.icon}
+                  alt={item.name}
+                  width={150}
+                  height={150}
+                  className="h-[70px] w-[70px] hover:rotate-12 transition duration-300 ease-in-out cursor-pointer"
+                />
+                <h1>{item.name}</h1>
+              </InputDialog>
             </div>
           </BlurFade>
         ))}

@@ -15,8 +15,19 @@ export const List = [
     name: "Meditation",
     icon: "/meditation.svg",
   },
+];
+
+export const coachingExperts = [
   {
-    name: "Language Practice",
-    icon: "/meditation.svg",
+    name: "Joanna",
+    avatar: "/t1.avif",
+  },
+  {
+    name: "Sallie",
+    avatar: "/t2.jpg",
+  },
+  {
+    name: "James",
+    avatar: "/t3.jpg",
   },
 ];
