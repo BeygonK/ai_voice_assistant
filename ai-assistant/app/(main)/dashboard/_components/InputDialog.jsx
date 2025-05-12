@@ -1,3 +1,5 @@
+"use client";
+
 import React, { use, useState } from "react";
 import {
   Dialog,
@@ -14,20 +16,24 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { api } from "@/convex/_generated/api";
 import { useMutation } from "convex/react";
+import { useRouter } from "next/navigation";
 
 function InputDialog({ children, itemOptions }) {
   const [selectedOption, setSelectedOption] = useState(null);
   const [inputValue, setInputValue] = useState("");
   const CreateContentRoom = useMutation(api.contentRoom.CreateContentRoom);
   const [openDialog, setOpenDialog] = useState(false);
+  const router = useRouter();
 
   const onClickNext = async () => {
+    // This returns the id of the content room
     const res = await CreateContentRoom({
       topicOption: itemOptions.name,
       tutor: selectedOption,
       topic: inputValue,
     });
     setOpenDialog(false);
+    router.push("/discussion/" + res); // redirect to the discussion page
   };
   return (
     <div>
