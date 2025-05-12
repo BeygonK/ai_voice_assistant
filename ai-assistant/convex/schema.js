@@ -8,4 +8,10 @@ export default defineSchema({
     credits: v.number(),
     subscriptionId: v.optional(v.string()),
   }),
+  contentRoom: defineTable({
+    topicOption: v.string(),
+    tutor: v.string(),
+    topic: v.string(),
+    conversation: v.optional(v.any()),
+  }),
 });

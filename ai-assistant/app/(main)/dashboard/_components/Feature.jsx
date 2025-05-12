@@ -4,11 +4,12 @@ import { Button } from "@/components/ui/button";
 import { List } from "@/utils/List";
 import { useUser } from "@stackframe/stack";
 import Image from "next/image";
-import React, { use } from "react";
+import React from "react";
 import InputDialog from "./InputDialog";
 
 function Feature() {
   const user = useUser();
+
   return (
     <div>
       <div className="flex items-center justify-between p-4 bg-white rounded-lg mb-4">
@@ -18,13 +19,11 @@ function Feature() {
         </div>
         <Button variant={"destructive"}>My Profile</Button>
       </div>
+
       <div className="grid grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-4 p-4 bg-white rounded-lg">
         {List.map((item, index) => (
           <BlurFade key={item.icon} delay={0.25 + index * 0.05} inView>
-            <div
-              key={index}
-              className="flex flex-col justify-center items-center bg-gray-50 rounded-lg hover:shadow-lg transition duration-300 ease-in-out cursor-pointer"
-            >
+            <div className="flex flex-col justify-center items-center bg-gray-50 rounded-lg hover:shadow-lg transition duration-300 ease-in-out cursor-pointer">
               <InputDialog itemOptions={item}>
                 <Image
                   src={item.icon}
